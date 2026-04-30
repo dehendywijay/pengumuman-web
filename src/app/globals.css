@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #050505;
+    --foreground: #ffffff;
+    --accent: #00f2ff;
+    --accent-glow: rgba(0, 242, 255, 0.5);
+    --success: #00ff88;
+    --success-glow: rgba(0, 255, 136, 0.5);
+    --error: #ff3e3e;
+    --error-glow: rgba(255, 62, 62, 0.5);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-outfit), sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@theme {
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-error: var(--error);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-border {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow), inset 0 0 5px var(--accent-glow);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.neon-text-success {
+  text-shadow: 0 0 15px var(--success-glow);
+}
+
+.glow-bg {
+  background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.15;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}

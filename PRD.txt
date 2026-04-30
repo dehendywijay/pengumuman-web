@@ -1,0 +1,103 @@
+PRODUCT REQUIREMENTS DOCUMENT (PRD)
+Proyek: Portal Pengumuman Kelulusan Interaktif
+Platform: Web Application (Responsive/Mobile-First)
+Tech Stack: Next.js (App Router), Tailwind CSS, Framer Motion, Prisma ORM, PostgreSQL.
+
+1. Ringkasan Eksekutif (Executive Summary)
+Membangun platform portal pengumuman kelulusan sekolah yang aman, cepat, dan memiliki visualisasi interaktif. Sistem ini akan menahan akses ke hasil kelulusan menggunakan Countdown Timer, menyajikan informasi resmi dari sekolah, dan memberikan pengalaman emosional yang futuristik dan memukau saat siswa menerima hasil kelulusannya.
+
+2. Arsitektur Sistem & Repositori
+Monorepo: Menggunakan Next.js App Router.
+
+Frontend: React Components dengan Tailwind CSS untuk styling berbasis utility dan Framer Motion untuk orkestrasi animasi kompleks.
+
+Backend / API: Next.js Route Handlers (app/api/...) untuk menangani autentikasi dan pengambilan data kelulusan.
+
+Database: Karena data NIS dan Nama sudah ada dan sifatnya read-heavy (hanya dibaca, tidak ada pendaftaran baru), data dapat di-seed ke dalam database relasional (seperti PostgreSQL) menggunakan Prisma ORM.
+
+3. Fitur Utama & Spesifikasi (Core Features)
+A. Landing Page & Countdown Timer
+Halaman utama yang terbuka untuk publik sebelum dan sesudah waktu pengumuman.
+
+Countdown Timer:
+
+Waktu dihitung mundur menuju hari & jam H.
+
+Animasi angka bergulir (rolling numbers) dengan efek glow menggunakan Framer Motion.
+
+Security Note: Logika countdown harus divalidasi juga di sisi API (Backend). Jangan sampai siswa memanipulasi jam lokal di browser untuk bypass pengumuman.
+
+Informasi Kepala Sekolah & SK Kelulusan:
+
+Disajikan dalam card bergaya glassmorphism (latar belakang semi-transparan dengan efek blur).
+
+Berisi teks himbauan resmi dan tombol untuk mengunduh dokumen SK Kelulusan (PDF).
+
+B. Autentikasi Siswa (Login)
+Kredensial: Username dan Password menggunakan NIS (Nomor Induk Siswa).
+
+Mekanisme: Form login hanya akan aktif dan bisa di-submit ketika Countdown Timer sudah menyentuh angka 00:00:00.
+
+UX Form: Desain form yang minimalis dengan efek neon pada border input saat sedang di-focus, serta validasi error yang dilengkapi dengan animasi getar (shake animation).
+
+C. Output Kelulusan (The Reveal Page)
+Ini adalah inti dari interaksi website. Hasil kelulusan tidak ditampilkan secara instan dan membosankan, melainkan melalui sekuens animasi yang membangkitkan euforia.
+
+The Build-up (Framer Motion):
+
+Setelah login berhasil, layar akan bertransisi menjadi gelap (fade to black).
+
+Muncul animasi pemindaian (scanning effect) bergaya sci-fi atau hologram yang seolah-olah sedang memproses data siswa berdasarkan NIS.
+
+The Reveal (Status Lulus):
+
+Teks nama siswa akan muncul dengan efek pengetikan (typewriter) atau dekripsi kode.
+
+Status "LULUS" akan meledak ke layar menggunakan animasi scale-up dan spring physics dari Framer Motion.
+
+Warna dominan: Hijau neon atau Cyan cerah dengan bayangan glowing yang kuat, di atas latar belakang bernuansa dark mode.
+
+Partikel konfeti digital atau efek cahaya jatuh (seperti matrix rain yang dimodifikasi) di latar belakang.
+
+The Reveal (Status Tidak Lulus - Edge Case):
+
+Ditampilkan dengan warna merah gelap, animasi yang lebih lambat dan halus (tanpa ledakan partikel) untuk menjaga empati.
+
+4. Struktur Database (Prisma Schema)
+Sederhana dan terisolasi untuk keamanan data siswa:
+
+Code snippet
+model Student {
+  id        Int      @id @default(autoincrement())
+  nis       String   @unique
+  name      String
+  isPassed  Boolean  @default(true)
+}
+(Catatan: Password tidak perlu disimpan jika login murni mencocokkan NIS di kolom username dan password, cukup validasi nis === inputUser && nis === inputPassword pada sisi API).
+
+5. Rencana Pengembangan (Roadmap)
+Fase 1: Setup & UI Skeleton
+
+Inisialisasi Next.js, instalasi Tailwind CSS, Framer Motion, dan konfigurasi font (disarankan menggunakan font sans-serif modern/geometris).
+
+Pembuatan tata letak statis untuk halaman utama dan form login.
+
+Fase 2: Backend API & Database
+
+Setup Prisma ORM dan injeksi data awal (seeding NIS dan Nama ke dalam database).
+
+Membuat endpoint /api/auth untuk memvalidasi NIS dan mengembalikan token/sesi.
+
+Membuat middleware untuk memblokir akses ke API hasil kelulusan sebelum hari & jam yang ditentukan.
+
+Fase 3: Animasi & Integrasi (The Magic)
+
+Membangun komponen CountdownTimer dengan sinkronisasi waktu server.
+
+Membuat halaman Reveal dengan orkestrasi Framer Motion (Variants, AnimatePresence untuk page transition, dan layout animations).
+
+Fase 4: Testing & Deployment
+
+Load testing: Memastikan API tidak crash jika diakses oleh ratusan siswa di detik yang sama.
+
+Deployment menggunakan platform serverless untuk skalabilitas otomatis.
