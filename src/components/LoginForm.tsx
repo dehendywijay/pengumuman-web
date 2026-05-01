@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, User, ArrowRight, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Siswa } from "@/lib/type";
 
 interface LoginFormProps {
   disabled: boolean;
@@ -24,16 +25,16 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
     setError("");
 
     try {
-      const res = await fetch("/api/auth", {
+      const res = await fetch("/api/siswa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nis, password }),
+        body: JSON.stringify({ nisn: nis, password }),
       });
 
       const data = await res.json();
-
-      if (res.ok) {
-        onLoginSuccess(data.student);
+      
+      if (res.status === 200) {
+        onLoginSuccess(data.nisn ? data : null);
       } else {
         setError(data.message || "NIS atau Password salah");
       }

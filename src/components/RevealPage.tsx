@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 interface RevealPageProps {
   student: {
-    name: string;
-    nis: string;
-    isPassed: boolean;
+    nama: string;
+    nisn: string;
+    kelas : string;
   };
   onBack: () => void;
 }
@@ -31,7 +32,7 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
     <div className="fixed inset-0 z-50 bg-[#050505] flex flex-col items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 glow-bg opacity-30" />
-      {student.isPassed && phase === "reveal" && <Confetti />}
+      {phase === "reveal" && <Confetti />}
       
       <AnimatePresence mode="wait">
         {phase === "scanning" && (
@@ -77,7 +78,7 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
               <h2 className="text-accent font-mono tracking-[0.3em] animate-pulse uppercase">
                 Memproses Data Identitas
               </h2>
-              <p className="text-white/30 text-sm font-mono">NIS: {student.nis}</p>
+              <p className="text-white/30 text-sm font-mono">Validasi Identitas dari {student.nama}</p>
             </div>
           </motion.div>
         )}
@@ -131,7 +132,7 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
                 transition={{ delay: 0.3 }}
                 className="text-3xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60"
               >
-                {student.name}
+                {student.nama} dari KELAS {student.kelas}
               </motion.h1>
             </div>
 
@@ -147,20 +148,15 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
               }}
               className={cn(
                 "glass w-full py-12 rounded-3xl border-2 flex flex-col items-center gap-6 relative overflow-hidden",
-                student.isPassed 
-                  ? "border-success/30 shadow-[0_0_50px_rgba(0,255,136,0.15)]" 
-                  : "border-error/30 shadow-[0_0_50px_rgba(255,62,62,0.15)]"
+                "border-success/30 shadow-[0_0_50px_rgba(0,255,136,0.15)]",
               )}
             >
               {/* Status Icon */}
               <div className={cn(
                 "h-24 w-24 rounded-full flex items-center justify-center",
-                student.isPassed ? "bg-success/10 text-success" : "bg-error/10 text-error"
+                 "bg-success/10 text-success" 
               )}>
-                {student.isPassed 
-                  ? <CheckCircle2 className="h-16 w-16 drop-shadow-[0_0_10px_currentColor]" /> 
-                  : <XCircle className="h-16 w-16 drop-shadow-[0_0_10px_currentColor]" />
-                }
+               <CheckCircle2 className="h-16 w-16 drop-shadow-[0_0_10px_currentColor]" />
               </div>
 
               <div className="space-y-2">
@@ -170,10 +166,10 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
                   transition={{ delay: 1.2 }}
                   className={cn(
                     "text-6xl md:text-8xl font-black tracking-tighter",
-                    student.isPassed ? "text-success neon-text-success" : "text-error"
+                    "text-success neon-text-success" 
                   )}
                 >
-                  {student.isPassed ? "LULUS" : "TIDAK LULUS"}
+                   LULUS
                 </motion.h2>
                 
                 <motion.div
@@ -184,12 +180,12 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
                 >
                   <p className={cn(
                     "text-lg md:text-xl font-bold tracking-wide uppercase",
-                    student.isPassed ? "text-success/80" : "text-error/80"
+                    "text-success/80" 
                   )}>
-                    {student.isPassed 
-                      ? "Selamat! Kamu Lulus, Semangat Terus! 🎉" 
-                      : "Jangan Berkecil Hati, Tetap Semangat! ❤️"
-                    }
+                    
+                      "Selamat! Kamu Lulus, Semangat Terus! 🎉" 
+                      
+                    
                   </p>
                   <p className="text-white/40 text-xs font-medium uppercase tracking-widest">
                     Tahun Ajaran 2025/2026
@@ -200,7 +196,7 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
               {/* Background Glow */}
               <div className={cn(
                 "absolute -bottom-1/2 left-1/2 -translate-x-1/2 w-full h-full blur-[100px] opacity-20",
-                student.isPassed ? "bg-success" : "bg-error"
+                 "bg-success"
               )} />
             </motion.div>
 
@@ -211,12 +207,12 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
               transition={{ delay: 1.8 }}
               className="flex flex-wrap justify-center gap-4 w-full"
             >
-              {student.isPassed && (
+            
                 <button className="flex-1 min-w-[200px] bg-accent text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-accent/90 transition-all active:scale-[0.98]">
                   <Download className="h-5 w-5" />
                   UNDUH SK KELULUSAN (PDF)
                 </button>
-              )}
+             
               <button 
                 onClick={onBack}
                 className="flex-1 min-w-[200px] glass text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-white/5 transition-all active:scale-[0.98]"

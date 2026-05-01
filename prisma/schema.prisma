@@ -1,20 +1,19 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Student {
-  id        Int      @id @default(autoincrement())
-  nis       String   @unique
-  name      String
-  isPassed  Boolean  @default(true)
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Siswa {
+  nama  String?
+  nisn  String? @unique
+  kelas String?
+  id    Int     @id @default(autoincrement())
+
+   @@map("siswa")
 }

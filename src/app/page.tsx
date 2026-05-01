@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import CountdownTimer from "@/components/CountdownTimer";
-import LoginForm from "@/components/LoginForm";
-import RevealPage from "@/components/RevealPage";
+
 import { FileText, Download, ShieldCheck, GraduationCap } from "lucide-react";
+import RevealPage from "../components/RevealPage";
+import CountdownTimer from "../components/CountdownTimer";
+import LoginForm from "../components/LoginForm";
 
 // Target date for the announcement
 // src/app/page.tsx
-const TARGET_DATE = "2024-01-01T00:00:00";
+const TARGET_DATE = "2026-05-04T17:00:00";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     // Initial check
     setIsTimeUp(new Date() >= new Date(TARGET_DATE));
@@ -45,9 +47,8 @@ export default function Home() {
           className="text-center space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full border-white/10 mb-2">
-            <ShieldCheck className="h-4 w-4 text-accent" />
             <span className="text-[10px] md:text-xs font-bold tracking-widest text-white/70 uppercase">
-              Official School Portal
+              SMAN 1 BANGUNREJO
             </span>
           </div>
           <h1 className="text-4xl md:text-7xl font-black tracking-tight leading-tight">
@@ -56,7 +57,7 @@ export default function Home() {
           </h1>
           <p className="text-white/40 max-w-lg mx-auto text-sm md:text-base">
             Portal resmi pengumuman kelulusan SMA Negeri 1 (SMANSA). 
-            Gunakan NIS Anda untuk mengakses informasi hasil akhir.
+            Gunakan NISN Anda untuk mengakses informasi hasil akhir.
           </p>
         </motion.div>
 
@@ -108,8 +109,7 @@ export default function Home() {
 
             <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
               <p>
-                Sesuai dengan Surat Keputusan Kepala Sekolah Nomor: 421/089/2026, 
-                seluruh siswa kelas XII diwajibkan untuk mengecek hasil kelulusan secara mandiri melalui portal ini.
+                PENGAMBILAN SKL (Surat Keterangan Lulus) dapat dilakukan mulai Kamis 7 Mei 2026. Dengan catatan sudah dinyatakan Lulus
               </p>
               <div className="p-4 bg-white/5 rounded-xl border-l-4 border-accent">
                 <p className="italic text-white/60 text-xs md:text-sm">
@@ -144,8 +144,7 @@ export default function Home() {
         >
           <p>© 2026 IT SMANSA. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-accent transition-colors">Panduan</a>
-            <a href="#" className="hover:text-accent transition-colors">Hubungi Kami</a>
+            <a href="#" className="hover:text-accent transition-colors">Alternatif Link. (Link bisa di akses ketika Web ini tidak berfungsi.)</a>
           </div>
         </motion.footer>
       </div>
