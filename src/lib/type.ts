@@ -3,3 +3,9 @@ export type Siswa = {
     nama: string;
     kelas: string;
 }
+
+export type sd = {
+    nisn: string;
+    nama: string;
+    kelas: string;
+}
