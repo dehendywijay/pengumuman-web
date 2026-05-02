@@ -143,9 +143,7 @@ export default function Home() {
           className="w-full flex justify-between items-center py-8 border-t border-white/5 text-white/20 text-[10px] md:text-xs"
         >
           <p>© 2026 IT SMANSA. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-accent transition-colors">Alternatif Link. (Link bisa di akses ketika Web ini tidak berfungsi.)</a>
-          </div>
+          
         </motion.footer>
       </div>
     </main>

@@ -11,7 +11,10 @@ interface LoginFormProps {
   onLoginSuccess: (studentData: any) => void;
 }
 
-export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) {
+export default function LoginForm({
+  disabled,
+  onLoginSuccess,
+}: LoginFormProps) {
   const [nis, setNis] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +35,7 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
       });
 
       const data = await res.json();
-      
+
       if (res.status === 200) {
         onLoginSuccess(data.nisn ? data : null);
       } else {
@@ -51,7 +54,9 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
       animate={{ opacity: 1, y: 0 }}
       className={cn(
         "glass w-full max-w-md p-8 rounded-2xl relative transition-all duration-500",
-        disabled ? "opacity-50 grayscale pointer-events-none scale-95" : "opacity-100"
+        disabled
+          ? "opacity-50 grayscale pointer-events-none scale-95"
+          : "opacity-100",
       )}
     >
       <div className="flex flex-col items-center mb-8">
@@ -59,12 +64,16 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
           <Lock className="text-accent h-6 w-6" />
         </div>
         <h2 className="text-xl font-bold tracking-tight">Login Siswa</h2>
-        <p className="text-white/50 text-sm">Masukkan NIS Anda untuk melihat hasil</p>
+        <p className="text-white/50 text-sm">
+          Masukkan NIS Anda untuk melihat hasil
+        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <label className="text-xs font-medium text-white/60 ml-1">USERNAME (NIS)</label>
+          <label className="text-xs font-medium text-white/60 ml-1">
+            USERNAME (NIS)
+          </label>
           <div className="relative group">
             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/30 group-focus-within:text-accent transition-colors" />
             <input
@@ -79,7 +88,9 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
         </div>
 
         <div className="space-y-2">
-          <label className="text-xs font-medium text-white/60 ml-1">PASSWORD (NIS)</label>
+          <label className="text-xs font-medium text-white/60 ml-1">
+            PASSWORD (NIS)
+          </label>
           <div className="relative group">
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/30 group-focus-within:text-accent transition-colors" />
             <input
@@ -122,7 +133,11 @@ export default function LoginForm({ disabled, onLoginSuccess }: LoginFormProps) 
           )}
         </button>
       </form>
-
+      <div className="flex gap-6 mt-6">
+        <a href="https://script.google.com/macros/s/AKfycbyZZrYjLwGzBfmdiEjsQdkTJKmcId7T2X_K3mVbcG0NPoyX7FVaJoe2vm0Z3Y0hzZaE/exec" className="hover:text-accent transition-colors">
+          Alternatif Link. (Link bisa di akses ketika Login tidak berhasil.)
+        </a>
+      </div>
       {disabled && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] rounded-2xl z-10">
           <p className="text-white font-medium text-sm px-6 py-2 glass rounded-full border-white/20">
