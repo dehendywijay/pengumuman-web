@@ -134,7 +134,7 @@ export default function LoginForm({
         </button>
       </form>
       <div className="flex gap-6 mt-6">
-        <a href="https://script.google.com/macros/s/AKfycbyZZrYjLwGzBfmdiEjsQdkTJKmcId7T2X_K3mVbcG0NPoyX7FVaJoe2vm0Z3Y0hzZaE/exec" className="hover:text-accent transition-colors">
+        <a href="https://kelulusaan.page.gd/" className="hover:text-accent transition-colors">
           Alternatif Link. (Link bisa di akses ketika Login tidak berhasil.)
         </a>
       </div>
