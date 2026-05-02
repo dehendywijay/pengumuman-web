@@ -10,6 +10,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Portal Kelulusan SMANSA | 2026",
   description: "Pengumuman Kelulusan Siswa SMANSA Tahun Ajaran 2025/2026",
+  icons: {
+    icon: "/67fdbcb75f2d0.ico",
+    shortcut: "/67fdbcb75f2d0.ico",
+    apple: "/67fdbcb75f2d0.ico",
+  },
 };
 
 export default function RootLayout({

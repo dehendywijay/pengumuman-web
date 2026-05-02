@@ -104,7 +104,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl font-bold">Informasi Penting</h3>
-                <p className="text-white/40 text-sm">SMA Negeri 1 (SMANSA)</p>
+                <p className="text-white/40 text-sm">SMA Negeri 1 Bangunrejo (SMANSABARE)</p>
               </div>
             </div>
 
