@@ -12,7 +12,6 @@ import LoginForm from "../components/LoginForm";
 // src/app/page.tsx
 const TARGET_DATE = "2024-05-04T17:00:00";
 
-
 export default function Home() {
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [studentData, setStudentData] = useState<any>(null);
@@ -28,7 +27,9 @@ export default function Home() {
   if (!mounted) return null;
 
   if (studentData) {
-    return <RevealPage student={studentData} onBack={() => setStudentData(null)} />;
+    return (
+      <RevealPage student={studentData} onBack={() => setStudentData(null)} />
+    );
   }
 
   return (
@@ -56,8 +57,8 @@ export default function Home() {
             <span className="text-accent neon-text">KELULUSAN 2026</span>
           </h1>
           <p className="text-white/40 max-w-lg mx-auto text-sm md:text-base">
-            Portal resmi pengumuman kelulusan SMA Negeri 1 (SMANSA). 
-            Gunakan NISN Anda untuk mengakses informasi hasil akhir.
+            Portal resmi pengumuman kelulusan SMA Negeri 1 (SMANSA). Gunakan
+            NISN Anda untuk mengakses informasi hasil akhir.
           </p>
         </motion.div>
 
@@ -71,9 +72,9 @@ export default function Home() {
             <p className="text-white/40 text-xs font-medium tracking-[0.2em] uppercase">
               Waktu Menuju Pengumuman
             </p>
-            <CountdownTimer 
-              targetDate={TARGET_DATE} 
-              onComplete={() => setIsTimeUp(true)} 
+            <CountdownTimer
+              targetDate={TARGET_DATE}
+              onComplete={() => setIsTimeUp(true)}
             />
           </motion.div>
         ) : (
@@ -109,28 +110,41 @@ export default function Home() {
 
             <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
               <p>
-                PENGAMBILAN SKL (Surat Keterangan Lulus) dapat dilakukan mulai Kamis 7 Mei 2026. Dengan catatan sudah dinyatakan Lulus
+                PENGAMBILAN SKL (Surat Keterangan Lulus) dapat dilakukan mulai
+                Kamis 7 Mei 2026. Dengan catatan sudah dinyatakan Lulus
               </p>
               <div className="p-4 bg-white/5 rounded-xl border-l-4 border-accent">
                 <p className="italic text-white/60 text-xs md:text-sm">
-                  "Kelulusan adalah awal dari perjalanan baru. Tetaplah rendah hati dan teruslah bermimpi." 
+                  "Kelulusan adalah awal dari perjalanan baru. Tetaplah rendah
+                  hati dan teruslah bermimpi."
                   <br />- Kepala Sekolah SMANSA
                 </p>
               </div>
             </div>
 
-            <button className="w-full glass hover:bg-white/5 border-white/10 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all">
-              <FileText className="h-5 w-5 text-accent" />
-              UNDUH SK KEPALA SEKOLAH (PDF)
-              <Download className="h-5 w-5 ml-2" />
+            <button
+              className="w-full glass hover:bg-white/5 border border-white/10 text-white font-bold 
+              py-3 sm:py-4 px-4 
+              rounded-xl flex items-center justify-center gap-2 sm:gap-3 
+              text-sm sm:text-base 
+              transition-all"
+            >
+              <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-accent shrink-0" />
+
+              <span className="text-center leading-tight">
+                UNDUH SK KEPALA SEKOLAH
+                <span className="block sm:inline"> (PDF)</span>
+              </span>
+
+              <Download className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" />
             </button>
           </motion.div>
 
           {/* Right: Login Form */}
           <div className="flex justify-center lg:justify-end">
-            <LoginForm 
-              disabled={!isTimeUp} 
-              onLoginSuccess={(student) => setStudentData(student)} 
+            <LoginForm
+              disabled={!isTimeUp}
+              onLoginSuccess={(student) => setStudentData(student)}
             />
           </div>
         </div>
@@ -143,7 +157,6 @@ export default function Home() {
           className="w-full flex justify-between items-center py-8 border-t border-white/5 text-white/20 text-[10px] md:text-xs"
         >
           <p>© 2026 IT SMANSA. All Rights Reserved.</p>
-          
         </motion.footer>
       </div>
     </main>
