@@ -10,7 +10,7 @@ import LoginForm from "../components/LoginForm";
 
 // Target date for the announcement
 // src/app/page.tsx
-const TARGET_DATE = "2026-05-04T17:00:00";
+const TARGET_DATE = "2024-05-04T17:00:00";
 
 
 export default function Home() {
