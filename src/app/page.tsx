@@ -57,7 +57,7 @@ export default function Home() {
             <span className="text-accent neon-text">KELULUSAN 2026</span>
           </h1>
           <p className="text-white/40 max-w-lg mx-auto text-sm md:text-base">
-            Portal resmi pengumuman kelulusan SMA Negeri 1 (SMANSA). Gunakan
+            Portal resmi pengumuman kelulusan SMA Negeri 1 Bangunrejo. Gunakan
             NISN Anda untuk mengakses informasi hasil akhir.
           </p>
         </motion.div>
