@@ -2,9 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const images = [
-  "/IMG_8337.JPG.jpeg",
-  "/IMG_8338.JPG.jpeg",
-  "/IMG_8339.JPG.jpeg",
+  "/1.jpeg",
+  "/2.jpeg",
+  "/3.jpeg",
 ];
 
 export default function Slider() {
