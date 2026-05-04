@@ -79,7 +79,7 @@ export default function LoginForm({
               type="text"
               value={nis}
               onChange={(e) => setNis(e.target.value)}
-              placeholder="Contoh: 12345"
+              placeholder="Contoh: 23-3210"
               className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-white placeholder:text-white/20"
               required
             />
