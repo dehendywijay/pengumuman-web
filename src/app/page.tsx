@@ -104,7 +104,9 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl font-bold">Informasi Penting</h3>
-                <p className="text-white/40 text-sm">SMA Negeri 1 Bangunrejo (SMANSABARE)</p>
+                <p className="text-white/40 text-sm">
+                  SMA Negeri 1 Bangunrejo (SMANSABARE)
+                </p>
               </div>
             </div>
 
@@ -122,12 +124,14 @@ export default function Home() {
               </div>
             </div>
 
-            <button
+            <a
+              href="/public/67fdbcb75f2d0.webp"
+              download
               className="w-full glass hover:bg-white/5 border border-white/10 text-white font-bold 
-              py-3 sm:py-4 px-4 
-              rounded-xl flex items-center justify-center gap-2 sm:gap-3 
-              text-sm sm:text-base 
-              transition-all"
+                py-3 sm:py-4 px-4 
+                rounded-xl flex items-center justify-center gap-2 sm:gap-3 
+                text-sm sm:text-base 
+                transition-all"
             >
               <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-accent shrink-0" />
 
@@ -137,7 +141,7 @@ export default function Home() {
               </span>
 
               <Download className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" />
-            </button>
+            </a>
           </motion.div>
 
           {/* Right: Login Form */}
