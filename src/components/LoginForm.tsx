@@ -35,14 +35,13 @@ export default function LoginForm({
       });
 
       const data = await res.json();
-
       if (res.status === 200) {
-        onLoginSuccess(data.nisn ? data : null);
+        onLoginSuccess(data.nipd ? data : null);
       } else {
         setError(data.message || "NIS atau Password salah");
       }
     } catch (err) {
-      setError("Terjadi kesalahan sistem. Coba lagi nanti.");
+      setError("NIPD salah");
     } finally {
       setIsLoading(false);
     }
@@ -72,7 +71,7 @@ export default function LoginForm({
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label className="text-xs font-medium text-white/60 ml-1">
-            USERNAME (NIS)
+            USERNAME (NIPD)
           </label>
           <div className="relative group">
             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/30 group-focus-within:text-accent transition-colors" />
@@ -89,7 +88,7 @@ export default function LoginForm({
 
         <div className="space-y-2">
           <label className="text-xs font-medium text-white/60 ml-1">
-            PASSWORD (NIS)
+            PASSWORD (NIPD)
           </label>
           <div className="relative group">
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/30 group-focus-within:text-accent transition-colors" />

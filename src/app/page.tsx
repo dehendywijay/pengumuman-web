@@ -10,7 +10,7 @@ import LoginForm from "../components/LoginForm";
 
 // Target date for the announcement
 // src/app/page.tsx
-const TARGET_DATE = "2026-05-04T17:00:00";
+const TARGET_DATE = "2025-05-04T17:00:00";
 
 export default function Home() {
   const [isTimeUp, setIsTimeUp] = useState(false);
@@ -58,7 +58,7 @@ export default function Home() {
           </h1>
           <p className="text-white/40 max-w-lg mx-auto text-sm md:text-base">
             Portal resmi pengumuman kelulusan SMA Negeri 1 Bangunrejo. Gunakan
-            NISN Anda untuk mengakses informasi hasil akhir.
+            NIPD Anda untuk mengakses informasi hasil akhir.
           </p>
         </motion.div>
 
