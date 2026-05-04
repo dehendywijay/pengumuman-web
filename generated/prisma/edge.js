@@ -127,7 +127,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\PKL\\Pengumuman\\Pengumuman-web\\generated\\prisma",
+      "value": "/home/m4ncur/Documents/Pengumuman-web/pengumuman-web/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -136,12 +136,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\PKL\\Pengumuman\\Pengumuman-web\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/m4ncur/Documents/Pengumuman-web/pengumuman-web/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
