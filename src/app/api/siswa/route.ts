@@ -16,12 +16,12 @@ export const POST = async (req : NextRequest) => {
                 status: 401,
             });
         }
-        const res = await prisma.siswa.findFirst({
+        const res = await prisma.pengumuman.findFirst({
             where: {
-                nisn,
+                nipd: nisn,
             },
             select: {
-                nisn: true,
+                nipd: true,
                 nama: true,
                 kelas: true,
             }

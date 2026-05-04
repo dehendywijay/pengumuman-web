@@ -122,6 +122,13 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.PengumumanScalarFieldEnum = {
+  nipd: 'nipd',
+  kelas: 'kelas',
+  nama: 'nama',
+  id: 'id'
+};
+
 exports.Prisma.SiswaScalarFieldEnum = {
   nama: 'nama',
   nisn: 'nisn',
@@ -146,7 +153,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Siswa: 'Siswa'
+  pengumuman: 'pengumuman',
+  siswa: 'siswa'
 };
 
 /**

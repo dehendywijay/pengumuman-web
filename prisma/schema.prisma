@@ -8,12 +8,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
-model Siswa {
+model pengumuman {
+  nipd  String? @unique(map: "siswaa_nipd_key")
+  kelas String?
+  nama  String?
+  id    Int     @id @default(autoincrement())
+
+  
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model siswa {
   nama  String?
   nisn  String? @unique
   kelas String?
   id    Int     @id @default(autoincrement())
-
-   @@map("siswa")
 }

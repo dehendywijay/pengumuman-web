@@ -14,10 +14,16 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Siswa
+ * Model pengumuman
+ * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
-export type Siswa = $Result.DefaultSelection<Prisma.$SiswaPayload>
+export type pengumuman = $Result.DefaultSelection<Prisma.$pengumumanPayload>
+/**
+ * Model siswa
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type siswa = $Result.DefaultSelection<Prisma.$siswaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -26,8 +32,8 @@ export type Siswa = $Result.DefaultSelection<Prisma.$SiswaPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Siswas
- * const siswas = await prisma.siswa.findMany()
+ * // Fetch zero or more Pengumumen
+ * const pengumumen = await prisma.pengumuman.findMany()
  * ```
  *
  * 
@@ -47,8 +53,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Siswas
-   * const siswas = await prisma.siswa.findMany()
+   * // Fetch zero or more Pengumumen
+   * const pengumumen = await prisma.pengumuman.findMany()
    * ```
    *
    * 
@@ -143,14 +149,24 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.siswa`: Exposes CRUD operations for the **Siswa** model.
+   * `prisma.pengumuman`: Exposes CRUD operations for the **pengumuman** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Pengumumen
+    * const pengumumen = await prisma.pengumuman.findMany()
+    * ```
+    */
+  get pengumuman(): Prisma.pengumumanDelegate<ExtArgs>;
+
+  /**
+   * `prisma.siswa`: Exposes CRUD operations for the **siswa** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Siswas
     * const siswas = await prisma.siswa.findMany()
     * ```
     */
-  get siswa(): Prisma.SiswaDelegate<ExtArgs>;
+  get siswa(): Prisma.siswaDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -592,7 +608,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Siswa: 'Siswa'
+    pengumuman: 'pengumuman',
+    siswa: 'siswa'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -608,76 +625,146 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "siswa"
+      modelProps: "pengumuman" | "siswa"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Siswa: {
-        payload: Prisma.$SiswaPayload<ExtArgs>
-        fields: Prisma.SiswaFieldRefs
+      pengumuman: {
+        payload: Prisma.$pengumumanPayload<ExtArgs>
+        fields: Prisma.pengumumanFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.SiswaFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload> | null
+            args: Prisma.pengumumanFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.SiswaFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
           }
           findFirst: {
-            args: Prisma.SiswaFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload> | null
+            args: Prisma.pengumumanFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.SiswaFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
           }
           findMany: {
-            args: Prisma.SiswaFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>[]
+            args: Prisma.pengumumanFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>[]
           }
           create: {
-            args: Prisma.SiswaCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
           }
           createMany: {
-            args: Prisma.SiswaCreateManyArgs<ExtArgs>
+            args: Prisma.pengumumanCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.SiswaCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>[]
+            args: Prisma.pengumumanCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>[]
           }
           delete: {
-            args: Prisma.SiswaDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
           }
           update: {
-            args: Prisma.SiswaUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
           }
           deleteMany: {
-            args: Prisma.SiswaDeleteManyArgs<ExtArgs>
+            args: Prisma.pengumumanDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.SiswaUpdateManyArgs<ExtArgs>
+            args: Prisma.pengumumanUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.SiswaUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiswaPayload>
+            args: Prisma.pengumumanUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$pengumumanPayload>
+          }
+          aggregate: {
+            args: Prisma.PengumumanAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePengumuman>
+          }
+          groupBy: {
+            args: Prisma.pengumumanGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PengumumanGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.pengumumanCountArgs<ExtArgs>
+            result: $Utils.Optional<PengumumanCountAggregateOutputType> | number
+          }
+        }
+      }
+      siswa: {
+        payload: Prisma.$siswaPayload<ExtArgs>
+        fields: Prisma.siswaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.siswaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.siswaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
+          }
+          findFirst: {
+            args: Prisma.siswaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.siswaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
+          }
+          findMany: {
+            args: Prisma.siswaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>[]
+          }
+          create: {
+            args: Prisma.siswaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
+          }
+          createMany: {
+            args: Prisma.siswaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.siswaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>[]
+          }
+          delete: {
+            args: Prisma.siswaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
+          }
+          update: {
+            args: Prisma.siswaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
+          }
+          deleteMany: {
+            args: Prisma.siswaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.siswaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.siswaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$siswaPayload>
           }
           aggregate: {
             args: Prisma.SiswaAggregateArgs<ExtArgs>
             result: $Utils.Optional<AggregateSiswa>
           }
           groupBy: {
-            args: Prisma.SiswaGroupByArgs<ExtArgs>
+            args: Prisma.siswaGroupByArgs<ExtArgs>
             result: $Utils.Optional<SiswaGroupByOutputType>[]
           }
           count: {
-            args: Prisma.SiswaCountArgs<ExtArgs>
+            args: Prisma.siswaCountArgs<ExtArgs>
             result: $Utils.Optional<SiswaCountAggregateOutputType> | number
           }
         }
@@ -844,7 +931,907 @@ export namespace Prisma {
    */
 
   /**
-   * Model Siswa
+   * Model pengumuman
+   */
+
+  export type AggregatePengumuman = {
+    _count: PengumumanCountAggregateOutputType | null
+    _avg: PengumumanAvgAggregateOutputType | null
+    _sum: PengumumanSumAggregateOutputType | null
+    _min: PengumumanMinAggregateOutputType | null
+    _max: PengumumanMaxAggregateOutputType | null
+  }
+
+  export type PengumumanAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type PengumumanSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type PengumumanMinAggregateOutputType = {
+    nipd: string | null
+    kelas: string | null
+    nama: string | null
+    id: number | null
+  }
+
+  export type PengumumanMaxAggregateOutputType = {
+    nipd: string | null
+    kelas: string | null
+    nama: string | null
+    id: number | null
+  }
+
+  export type PengumumanCountAggregateOutputType = {
+    nipd: number
+    kelas: number
+    nama: number
+    id: number
+    _all: number
+  }
+
+
+  export type PengumumanAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type PengumumanSumAggregateInputType = {
+    id?: true
+  }
+
+  export type PengumumanMinAggregateInputType = {
+    nipd?: true
+    kelas?: true
+    nama?: true
+    id?: true
+  }
+
+  export type PengumumanMaxAggregateInputType = {
+    nipd?: true
+    kelas?: true
+    nama?: true
+    id?: true
+  }
+
+  export type PengumumanCountAggregateInputType = {
+    nipd?: true
+    kelas?: true
+    nama?: true
+    id?: true
+    _all?: true
+  }
+
+  export type PengumumanAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which pengumuman to aggregate.
+     */
+    where?: pengumumanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of pengumumen to fetch.
+     */
+    orderBy?: pengumumanOrderByWithRelationInput | pengumumanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: pengumumanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` pengumumen from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` pengumumen.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned pengumumen
+    **/
+    _count?: true | PengumumanCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PengumumanAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PengumumanSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PengumumanMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PengumumanMaxAggregateInputType
+  }
+
+  export type GetPengumumanAggregateType<T extends PengumumanAggregateArgs> = {
+        [P in keyof T & keyof AggregatePengumuman]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePengumuman[P]>
+      : GetScalarType<T[P], AggregatePengumuman[P]>
+  }
+
+
+
+
+  export type pengumumanGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: pengumumanWhereInput
+    orderBy?: pengumumanOrderByWithAggregationInput | pengumumanOrderByWithAggregationInput[]
+    by: PengumumanScalarFieldEnum[] | PengumumanScalarFieldEnum
+    having?: pengumumanScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PengumumanCountAggregateInputType | true
+    _avg?: PengumumanAvgAggregateInputType
+    _sum?: PengumumanSumAggregateInputType
+    _min?: PengumumanMinAggregateInputType
+    _max?: PengumumanMaxAggregateInputType
+  }
+
+  export type PengumumanGroupByOutputType = {
+    nipd: string | null
+    kelas: string | null
+    nama: string | null
+    id: number
+    _count: PengumumanCountAggregateOutputType | null
+    _avg: PengumumanAvgAggregateOutputType | null
+    _sum: PengumumanSumAggregateOutputType | null
+    _min: PengumumanMinAggregateOutputType | null
+    _max: PengumumanMaxAggregateOutputType | null
+  }
+
+  type GetPengumumanGroupByPayload<T extends pengumumanGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PengumumanGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PengumumanGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PengumumanGroupByOutputType[P]>
+            : GetScalarType<T[P], PengumumanGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type pengumumanSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    nipd?: boolean
+    kelas?: boolean
+    nama?: boolean
+    id?: boolean
+  }, ExtArgs["result"]["pengumuman"]>
+
+  export type pengumumanSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    nipd?: boolean
+    kelas?: boolean
+    nama?: boolean
+    id?: boolean
+  }, ExtArgs["result"]["pengumuman"]>
+
+  export type pengumumanSelectScalar = {
+    nipd?: boolean
+    kelas?: boolean
+    nama?: boolean
+    id?: boolean
+  }
+
+
+  export type $pengumumanPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "pengumuman"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      nipd: string | null
+      kelas: string | null
+      nama: string | null
+      id: number
+    }, ExtArgs["result"]["pengumuman"]>
+    composites: {}
+  }
+
+  type pengumumanGetPayload<S extends boolean | null | undefined | pengumumanDefaultArgs> = $Result.GetResult<Prisma.$pengumumanPayload, S>
+
+  type pengumumanCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<pengumumanFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PengumumanCountAggregateInputType | true
+    }
+
+  export interface pengumumanDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['pengumuman'], meta: { name: 'pengumuman' } }
+    /**
+     * Find zero or one Pengumuman that matches the filter.
+     * @param {pengumumanFindUniqueArgs} args - Arguments to find a Pengumuman
+     * @example
+     * // Get one Pengumuman
+     * const pengumuman = await prisma.pengumuman.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends pengumumanFindUniqueArgs>(args: SelectSubset<T, pengumumanFindUniqueArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Pengumuman that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {pengumumanFindUniqueOrThrowArgs} args - Arguments to find a Pengumuman
+     * @example
+     * // Get one Pengumuman
+     * const pengumuman = await prisma.pengumuman.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends pengumumanFindUniqueOrThrowArgs>(args: SelectSubset<T, pengumumanFindUniqueOrThrowArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Pengumuman that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanFindFirstArgs} args - Arguments to find a Pengumuman
+     * @example
+     * // Get one Pengumuman
+     * const pengumuman = await prisma.pengumuman.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends pengumumanFindFirstArgs>(args?: SelectSubset<T, pengumumanFindFirstArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Pengumuman that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanFindFirstOrThrowArgs} args - Arguments to find a Pengumuman
+     * @example
+     * // Get one Pengumuman
+     * const pengumuman = await prisma.pengumuman.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends pengumumanFindFirstOrThrowArgs>(args?: SelectSubset<T, pengumumanFindFirstOrThrowArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Pengumumen that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Pengumumen
+     * const pengumumen = await prisma.pengumuman.findMany()
+     * 
+     * // Get first 10 Pengumumen
+     * const pengumumen = await prisma.pengumuman.findMany({ take: 10 })
+     * 
+     * // Only select the `nipd`
+     * const pengumumanWithNipdOnly = await prisma.pengumuman.findMany({ select: { nipd: true } })
+     * 
+     */
+    findMany<T extends pengumumanFindManyArgs>(args?: SelectSubset<T, pengumumanFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Pengumuman.
+     * @param {pengumumanCreateArgs} args - Arguments to create a Pengumuman.
+     * @example
+     * // Create one Pengumuman
+     * const Pengumuman = await prisma.pengumuman.create({
+     *   data: {
+     *     // ... data to create a Pengumuman
+     *   }
+     * })
+     * 
+     */
+    create<T extends pengumumanCreateArgs>(args: SelectSubset<T, pengumumanCreateArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Pengumumen.
+     * @param {pengumumanCreateManyArgs} args - Arguments to create many Pengumumen.
+     * @example
+     * // Create many Pengumumen
+     * const pengumuman = await prisma.pengumuman.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends pengumumanCreateManyArgs>(args?: SelectSubset<T, pengumumanCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Pengumumen and returns the data saved in the database.
+     * @param {pengumumanCreateManyAndReturnArgs} args - Arguments to create many Pengumumen.
+     * @example
+     * // Create many Pengumumen
+     * const pengumuman = await prisma.pengumuman.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Pengumumen and only return the `nipd`
+     * const pengumumanWithNipdOnly = await prisma.pengumuman.createManyAndReturn({ 
+     *   select: { nipd: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends pengumumanCreateManyAndReturnArgs>(args?: SelectSubset<T, pengumumanCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Pengumuman.
+     * @param {pengumumanDeleteArgs} args - Arguments to delete one Pengumuman.
+     * @example
+     * // Delete one Pengumuman
+     * const Pengumuman = await prisma.pengumuman.delete({
+     *   where: {
+     *     // ... filter to delete one Pengumuman
+     *   }
+     * })
+     * 
+     */
+    delete<T extends pengumumanDeleteArgs>(args: SelectSubset<T, pengumumanDeleteArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Pengumuman.
+     * @param {pengumumanUpdateArgs} args - Arguments to update one Pengumuman.
+     * @example
+     * // Update one Pengumuman
+     * const pengumuman = await prisma.pengumuman.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends pengumumanUpdateArgs>(args: SelectSubset<T, pengumumanUpdateArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Pengumumen.
+     * @param {pengumumanDeleteManyArgs} args - Arguments to filter Pengumumen to delete.
+     * @example
+     * // Delete a few Pengumumen
+     * const { count } = await prisma.pengumuman.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends pengumumanDeleteManyArgs>(args?: SelectSubset<T, pengumumanDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pengumumen.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Pengumumen
+     * const pengumuman = await prisma.pengumuman.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends pengumumanUpdateManyArgs>(args: SelectSubset<T, pengumumanUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Pengumuman.
+     * @param {pengumumanUpsertArgs} args - Arguments to update or create a Pengumuman.
+     * @example
+     * // Update or create a Pengumuman
+     * const pengumuman = await prisma.pengumuman.upsert({
+     *   create: {
+     *     // ... data to create a Pengumuman
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Pengumuman we want to update
+     *   }
+     * })
+     */
+    upsert<T extends pengumumanUpsertArgs>(args: SelectSubset<T, pengumumanUpsertArgs<ExtArgs>>): Prisma__pengumumanClient<$Result.GetResult<Prisma.$pengumumanPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Pengumumen.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanCountArgs} args - Arguments to filter Pengumumen to count.
+     * @example
+     * // Count the number of Pengumumen
+     * const count = await prisma.pengumuman.count({
+     *   where: {
+     *     // ... the filter for the Pengumumen we want to count
+     *   }
+     * })
+    **/
+    count<T extends pengumumanCountArgs>(
+      args?: Subset<T, pengumumanCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PengumumanCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Pengumuman.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PengumumanAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PengumumanAggregateArgs>(args: Subset<T, PengumumanAggregateArgs>): Prisma.PrismaPromise<GetPengumumanAggregateType<T>>
+
+    /**
+     * Group by Pengumuman.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {pengumumanGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends pengumumanGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: pengumumanGroupByArgs['orderBy'] }
+        : { orderBy?: pengumumanGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, pengumumanGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPengumumanGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the pengumuman model
+   */
+  readonly fields: pengumumanFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for pengumuman.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__pengumumanClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the pengumuman model
+   */ 
+  interface pengumumanFieldRefs {
+    readonly nipd: FieldRef<"pengumuman", 'String'>
+    readonly kelas: FieldRef<"pengumuman", 'String'>
+    readonly nama: FieldRef<"pengumuman", 'String'>
+    readonly id: FieldRef<"pengumuman", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * pengumuman findUnique
+   */
+  export type pengumumanFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter, which pengumuman to fetch.
+     */
+    where: pengumumanWhereUniqueInput
+  }
+
+  /**
+   * pengumuman findUniqueOrThrow
+   */
+  export type pengumumanFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter, which pengumuman to fetch.
+     */
+    where: pengumumanWhereUniqueInput
+  }
+
+  /**
+   * pengumuman findFirst
+   */
+  export type pengumumanFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter, which pengumuman to fetch.
+     */
+    where?: pengumumanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of pengumumen to fetch.
+     */
+    orderBy?: pengumumanOrderByWithRelationInput | pengumumanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for pengumumen.
+     */
+    cursor?: pengumumanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` pengumumen from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` pengumumen.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of pengumumen.
+     */
+    distinct?: PengumumanScalarFieldEnum | PengumumanScalarFieldEnum[]
+  }
+
+  /**
+   * pengumuman findFirstOrThrow
+   */
+  export type pengumumanFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter, which pengumuman to fetch.
+     */
+    where?: pengumumanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of pengumumen to fetch.
+     */
+    orderBy?: pengumumanOrderByWithRelationInput | pengumumanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for pengumumen.
+     */
+    cursor?: pengumumanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` pengumumen from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` pengumumen.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of pengumumen.
+     */
+    distinct?: PengumumanScalarFieldEnum | PengumumanScalarFieldEnum[]
+  }
+
+  /**
+   * pengumuman findMany
+   */
+  export type pengumumanFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter, which pengumumen to fetch.
+     */
+    where?: pengumumanWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of pengumumen to fetch.
+     */
+    orderBy?: pengumumanOrderByWithRelationInput | pengumumanOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing pengumumen.
+     */
+    cursor?: pengumumanWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` pengumumen from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` pengumumen.
+     */
+    skip?: number
+    distinct?: PengumumanScalarFieldEnum | PengumumanScalarFieldEnum[]
+  }
+
+  /**
+   * pengumuman create
+   */
+  export type pengumumanCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * The data needed to create a pengumuman.
+     */
+    data?: XOR<pengumumanCreateInput, pengumumanUncheckedCreateInput>
+  }
+
+  /**
+   * pengumuman createMany
+   */
+  export type pengumumanCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many pengumumen.
+     */
+    data: pengumumanCreateManyInput | pengumumanCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * pengumuman createManyAndReturn
+   */
+  export type pengumumanCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many pengumumen.
+     */
+    data: pengumumanCreateManyInput | pengumumanCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * pengumuman update
+   */
+  export type pengumumanUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * The data needed to update a pengumuman.
+     */
+    data: XOR<pengumumanUpdateInput, pengumumanUncheckedUpdateInput>
+    /**
+     * Choose, which pengumuman to update.
+     */
+    where: pengumumanWhereUniqueInput
+  }
+
+  /**
+   * pengumuman updateMany
+   */
+  export type pengumumanUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update pengumumen.
+     */
+    data: XOR<pengumumanUpdateManyMutationInput, pengumumanUncheckedUpdateManyInput>
+    /**
+     * Filter which pengumumen to update
+     */
+    where?: pengumumanWhereInput
+  }
+
+  /**
+   * pengumuman upsert
+   */
+  export type pengumumanUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * The filter to search for the pengumuman to update in case it exists.
+     */
+    where: pengumumanWhereUniqueInput
+    /**
+     * In case the pengumuman found by the `where` argument doesn't exist, create a new pengumuman with this data.
+     */
+    create: XOR<pengumumanCreateInput, pengumumanUncheckedCreateInput>
+    /**
+     * In case the pengumuman was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<pengumumanUpdateInput, pengumumanUncheckedUpdateInput>
+  }
+
+  /**
+   * pengumuman delete
+   */
+  export type pengumumanDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+    /**
+     * Filter which pengumuman to delete.
+     */
+    where: pengumumanWhereUniqueInput
+  }
+
+  /**
+   * pengumuman deleteMany
+   */
+  export type pengumumanDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which pengumumen to delete
+     */
+    where?: pengumumanWhereInput
+  }
+
+  /**
+   * pengumuman without action
+   */
+  export type pengumumanDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the pengumuman
+     */
+    select?: pengumumanSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model siswa
    */
 
   export type AggregateSiswa = {
@@ -918,37 +1905,37 @@ export namespace Prisma {
 
   export type SiswaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Siswa to aggregate.
+     * Filter which siswa to aggregate.
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Siswas to fetch.
+     * Determine the order of siswas to fetch.
      */
-    orderBy?: SiswaOrderByWithRelationInput | SiswaOrderByWithRelationInput[]
+    orderBy?: siswaOrderByWithRelationInput | siswaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: SiswaWhereUniqueInput
+    cursor?: siswaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Siswas from the position of the cursor.
+     * Take `±n` siswas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Siswas.
+     * Skip the first `n` siswas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Siswas
+     * Count returned siswas
     **/
     _count?: true | SiswaCountAggregateInputType
     /**
@@ -988,11 +1975,11 @@ export namespace Prisma {
 
 
 
-  export type SiswaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SiswaWhereInput
-    orderBy?: SiswaOrderByWithAggregationInput | SiswaOrderByWithAggregationInput[]
+  export type siswaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: siswaWhereInput
+    orderBy?: siswaOrderByWithAggregationInput | siswaOrderByWithAggregationInput[]
     by: SiswaScalarFieldEnum[] | SiswaScalarFieldEnum
-    having?: SiswaScalarWhereWithAggregatesInput
+    having?: siswaScalarWhereWithAggregatesInput
     take?: number
     skip?: number
     _count?: SiswaCountAggregateInputType | true
@@ -1014,7 +2001,7 @@ export namespace Prisma {
     _max: SiswaMaxAggregateOutputType | null
   }
 
-  type GetSiswaGroupByPayload<T extends SiswaGroupByArgs> = Prisma.PrismaPromise<
+  type GetSiswaGroupByPayload<T extends siswaGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<SiswaGroupByOutputType, T['by']> &
         {
@@ -1028,21 +2015,21 @@ export namespace Prisma {
     >
 
 
-  export type SiswaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type siswaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     nama?: boolean
     nisn?: boolean
     kelas?: boolean
     id?: boolean
   }, ExtArgs["result"]["siswa"]>
 
-  export type SiswaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type siswaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     nama?: boolean
     nisn?: boolean
     kelas?: boolean
     id?: boolean
   }, ExtArgs["result"]["siswa"]>
 
-  export type SiswaSelectScalar = {
+  export type siswaSelectScalar = {
     nama?: boolean
     nisn?: boolean
     kelas?: boolean
@@ -1050,8 +2037,8 @@ export namespace Prisma {
   }
 
 
-  export type $SiswaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Siswa"
+  export type $siswaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "siswa"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       nama: string | null
@@ -1062,18 +2049,18 @@ export namespace Prisma {
     composites: {}
   }
 
-  type SiswaGetPayload<S extends boolean | null | undefined | SiswaDefaultArgs> = $Result.GetResult<Prisma.$SiswaPayload, S>
+  type siswaGetPayload<S extends boolean | null | undefined | siswaDefaultArgs> = $Result.GetResult<Prisma.$siswaPayload, S>
 
-  type SiswaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<SiswaFindManyArgs, 'select' | 'include' | 'distinct'> & {
+  type siswaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<siswaFindManyArgs, 'select' | 'include' | 'distinct'> & {
       select?: SiswaCountAggregateInputType | true
     }
 
-  export interface SiswaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Siswa'], meta: { name: 'Siswa' } }
+  export interface siswaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['siswa'], meta: { name: 'siswa' } }
     /**
      * Find zero or one Siswa that matches the filter.
-     * @param {SiswaFindUniqueArgs} args - Arguments to find a Siswa
+     * @param {siswaFindUniqueArgs} args - Arguments to find a Siswa
      * @example
      * // Get one Siswa
      * const siswa = await prisma.siswa.findUnique({
@@ -1082,12 +2069,12 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUnique<T extends SiswaFindUniqueArgs>(args: SelectSubset<T, SiswaFindUniqueArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends siswaFindUniqueArgs>(args: SelectSubset<T, siswaFindUniqueArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
      * Find one Siswa that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {SiswaFindUniqueOrThrowArgs} args - Arguments to find a Siswa
+     * @param {siswaFindUniqueOrThrowArgs} args - Arguments to find a Siswa
      * @example
      * // Get one Siswa
      * const siswa = await prisma.siswa.findUniqueOrThrow({
@@ -1096,13 +2083,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUniqueOrThrow<T extends SiswaFindUniqueOrThrowArgs>(args: SelectSubset<T, SiswaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends siswaFindUniqueOrThrowArgs>(args: SelectSubset<T, siswaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
      * Find the first Siswa that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaFindFirstArgs} args - Arguments to find a Siswa
+     * @param {siswaFindFirstArgs} args - Arguments to find a Siswa
      * @example
      * // Get one Siswa
      * const siswa = await prisma.siswa.findFirst({
@@ -1111,14 +2098,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirst<T extends SiswaFindFirstArgs>(args?: SelectSubset<T, SiswaFindFirstArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends siswaFindFirstArgs>(args?: SelectSubset<T, siswaFindFirstArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
      * Find the first Siswa that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaFindFirstOrThrowArgs} args - Arguments to find a Siswa
+     * @param {siswaFindFirstOrThrowArgs} args - Arguments to find a Siswa
      * @example
      * // Get one Siswa
      * const siswa = await prisma.siswa.findFirstOrThrow({
@@ -1127,13 +2114,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirstOrThrow<T extends SiswaFindFirstOrThrowArgs>(args?: SelectSubset<T, SiswaFindFirstOrThrowArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends siswaFindFirstOrThrowArgs>(args?: SelectSubset<T, siswaFindFirstOrThrowArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
      * Find zero or more Siswas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {siswaFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Siswas
      * const siswas = await prisma.siswa.findMany()
@@ -1145,11 +2132,11 @@ export namespace Prisma {
      * const siswaWithNamaOnly = await prisma.siswa.findMany({ select: { nama: true } })
      * 
      */
-    findMany<T extends SiswaFindManyArgs>(args?: SelectSubset<T, SiswaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends siswaFindManyArgs>(args?: SelectSubset<T, siswaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "findMany">>
 
     /**
      * Create a Siswa.
-     * @param {SiswaCreateArgs} args - Arguments to create a Siswa.
+     * @param {siswaCreateArgs} args - Arguments to create a Siswa.
      * @example
      * // Create one Siswa
      * const Siswa = await prisma.siswa.create({
@@ -1159,11 +2146,11 @@ export namespace Prisma {
      * })
      * 
      */
-    create<T extends SiswaCreateArgs>(args: SelectSubset<T, SiswaCreateArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends siswaCreateArgs>(args: SelectSubset<T, siswaCreateArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
      * Create many Siswas.
-     * @param {SiswaCreateManyArgs} args - Arguments to create many Siswas.
+     * @param {siswaCreateManyArgs} args - Arguments to create many Siswas.
      * @example
      * // Create many Siswas
      * const siswa = await prisma.siswa.createMany({
@@ -1173,11 +2160,11 @@ export namespace Prisma {
      * })
      *     
      */
-    createMany<T extends SiswaCreateManyArgs>(args?: SelectSubset<T, SiswaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends siswaCreateManyArgs>(args?: SelectSubset<T, siswaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many Siswas and returns the data saved in the database.
-     * @param {SiswaCreateManyAndReturnArgs} args - Arguments to create many Siswas.
+     * @param {siswaCreateManyAndReturnArgs} args - Arguments to create many Siswas.
      * @example
      * // Create many Siswas
      * const siswa = await prisma.siswa.createManyAndReturn({
@@ -1197,11 +2184,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends SiswaCreateManyAndReturnArgs>(args?: SelectSubset<T, SiswaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "createManyAndReturn">>
+    createManyAndReturn<T extends siswaCreateManyAndReturnArgs>(args?: SelectSubset<T, siswaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Siswa.
-     * @param {SiswaDeleteArgs} args - Arguments to delete one Siswa.
+     * @param {siswaDeleteArgs} args - Arguments to delete one Siswa.
      * @example
      * // Delete one Siswa
      * const Siswa = await prisma.siswa.delete({
@@ -1211,11 +2198,11 @@ export namespace Prisma {
      * })
      * 
      */
-    delete<T extends SiswaDeleteArgs>(args: SelectSubset<T, SiswaDeleteArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends siswaDeleteArgs>(args: SelectSubset<T, siswaDeleteArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
      * Update one Siswa.
-     * @param {SiswaUpdateArgs} args - Arguments to update one Siswa.
+     * @param {siswaUpdateArgs} args - Arguments to update one Siswa.
      * @example
      * // Update one Siswa
      * const siswa = await prisma.siswa.update({
@@ -1228,11 +2215,11 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends SiswaUpdateArgs>(args: SelectSubset<T, SiswaUpdateArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends siswaUpdateArgs>(args: SelectSubset<T, siswaUpdateArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
      * Delete zero or more Siswas.
-     * @param {SiswaDeleteManyArgs} args - Arguments to filter Siswas to delete.
+     * @param {siswaDeleteManyArgs} args - Arguments to filter Siswas to delete.
      * @example
      * // Delete a few Siswas
      * const { count } = await prisma.siswa.deleteMany({
@@ -1242,13 +2229,13 @@ export namespace Prisma {
      * })
      * 
      */
-    deleteMany<T extends SiswaDeleteManyArgs>(args?: SelectSubset<T, SiswaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends siswaDeleteManyArgs>(args?: SelectSubset<T, siswaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Siswas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {siswaUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Siswas
      * const siswa = await prisma.siswa.updateMany({
@@ -1261,11 +2248,11 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends SiswaUpdateManyArgs>(args: SelectSubset<T, SiswaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends siswaUpdateManyArgs>(args: SelectSubset<T, siswaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create or update one Siswa.
-     * @param {SiswaUpsertArgs} args - Arguments to update or create a Siswa.
+     * @param {siswaUpsertArgs} args - Arguments to update or create a Siswa.
      * @example
      * // Update or create a Siswa
      * const siswa = await prisma.siswa.upsert({
@@ -1280,14 +2267,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    upsert<T extends SiswaUpsertArgs>(args: SelectSubset<T, SiswaUpsertArgs<ExtArgs>>): Prisma__SiswaClient<$Result.GetResult<Prisma.$SiswaPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends siswaUpsertArgs>(args: SelectSubset<T, siswaUpsertArgs<ExtArgs>>): Prisma__siswaClient<$Result.GetResult<Prisma.$siswaPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
      * Count the number of Siswas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaCountArgs} args - Arguments to filter Siswas to count.
+     * @param {siswaCountArgs} args - Arguments to filter Siswas to count.
      * @example
      * // Count the number of Siswas
      * const count = await prisma.siswa.count({
@@ -1296,8 +2283,8 @@ export namespace Prisma {
      *   }
      * })
     **/
-    count<T extends SiswaCountArgs>(
-      args?: Subset<T, SiswaCountArgs>,
+    count<T extends siswaCountArgs>(
+      args?: Subset<T, siswaCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
@@ -1336,7 +2323,7 @@ export namespace Prisma {
      * Group by Siswa.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiswaGroupByArgs} args - Group by arguments.
+     * @param {siswaGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1351,14 +2338,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends SiswaGroupByArgs,
+      T extends siswaGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: SiswaGroupByArgs['orderBy'] }
-        : { orderBy?: SiswaGroupByArgs['orderBy'] },
+        ? { orderBy: siswaGroupByArgs['orderBy'] }
+        : { orderBy?: siswaGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1407,20 +2394,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, SiswaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSiswaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, siswaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSiswaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Siswa model
+   * Fields of the siswa model
    */
-  readonly fields: SiswaFieldRefs;
+  readonly fields: siswaFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Siswa.
+   * The delegate class that acts as a "Promise-like" for siswa.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__SiswaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__siswaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1448,298 +2435,298 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Siswa model
+   * Fields of the siswa model
    */ 
-  interface SiswaFieldRefs {
-    readonly nama: FieldRef<"Siswa", 'String'>
-    readonly nisn: FieldRef<"Siswa", 'String'>
-    readonly kelas: FieldRef<"Siswa", 'String'>
-    readonly id: FieldRef<"Siswa", 'Int'>
+  interface siswaFieldRefs {
+    readonly nama: FieldRef<"siswa", 'String'>
+    readonly nisn: FieldRef<"siswa", 'String'>
+    readonly kelas: FieldRef<"siswa", 'String'>
+    readonly id: FieldRef<"siswa", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Siswa findUnique
+   * siswa findUnique
    */
-  export type SiswaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter, which Siswa to fetch.
+     * Filter, which siswa to fetch.
      */
-    where: SiswaWhereUniqueInput
+    where: siswaWhereUniqueInput
   }
 
   /**
-   * Siswa findUniqueOrThrow
+   * siswa findUniqueOrThrow
    */
-  export type SiswaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter, which Siswa to fetch.
+     * Filter, which siswa to fetch.
      */
-    where: SiswaWhereUniqueInput
+    where: siswaWhereUniqueInput
   }
 
   /**
-   * Siswa findFirst
+   * siswa findFirst
    */
-  export type SiswaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter, which Siswa to fetch.
+     * Filter, which siswa to fetch.
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Siswas to fetch.
+     * Determine the order of siswas to fetch.
      */
-    orderBy?: SiswaOrderByWithRelationInput | SiswaOrderByWithRelationInput[]
+    orderBy?: siswaOrderByWithRelationInput | siswaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Siswas.
+     * Sets the position for searching for siswas.
      */
-    cursor?: SiswaWhereUniqueInput
+    cursor?: siswaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Siswas from the position of the cursor.
+     * Take `±n` siswas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Siswas.
+     * Skip the first `n` siswas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Siswas.
+     * Filter by unique combinations of siswas.
      */
     distinct?: SiswaScalarFieldEnum | SiswaScalarFieldEnum[]
   }
 
   /**
-   * Siswa findFirstOrThrow
+   * siswa findFirstOrThrow
    */
-  export type SiswaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter, which Siswa to fetch.
+     * Filter, which siswa to fetch.
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Siswas to fetch.
+     * Determine the order of siswas to fetch.
      */
-    orderBy?: SiswaOrderByWithRelationInput | SiswaOrderByWithRelationInput[]
+    orderBy?: siswaOrderByWithRelationInput | siswaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Siswas.
+     * Sets the position for searching for siswas.
      */
-    cursor?: SiswaWhereUniqueInput
+    cursor?: siswaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Siswas from the position of the cursor.
+     * Take `±n` siswas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Siswas.
+     * Skip the first `n` siswas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Siswas.
+     * Filter by unique combinations of siswas.
      */
     distinct?: SiswaScalarFieldEnum | SiswaScalarFieldEnum[]
   }
 
   /**
-   * Siswa findMany
+   * siswa findMany
    */
-  export type SiswaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter, which Siswas to fetch.
+     * Filter, which siswas to fetch.
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Siswas to fetch.
+     * Determine the order of siswas to fetch.
      */
-    orderBy?: SiswaOrderByWithRelationInput | SiswaOrderByWithRelationInput[]
+    orderBy?: siswaOrderByWithRelationInput | siswaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Siswas.
+     * Sets the position for listing siswas.
      */
-    cursor?: SiswaWhereUniqueInput
+    cursor?: siswaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Siswas from the position of the cursor.
+     * Take `±n` siswas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Siswas.
+     * Skip the first `n` siswas.
      */
     skip?: number
     distinct?: SiswaScalarFieldEnum | SiswaScalarFieldEnum[]
   }
 
   /**
-   * Siswa create
+   * siswa create
    */
-  export type SiswaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * The data needed to create a Siswa.
+     * The data needed to create a siswa.
      */
-    data?: XOR<SiswaCreateInput, SiswaUncheckedCreateInput>
+    data?: XOR<siswaCreateInput, siswaUncheckedCreateInput>
   }
 
   /**
-   * Siswa createMany
+   * siswa createMany
    */
-  export type SiswaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Siswas.
+     * The data used to create many siswas.
      */
-    data: SiswaCreateManyInput | SiswaCreateManyInput[]
+    data: siswaCreateManyInput | siswaCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Siswa createManyAndReturn
+   * siswa createManyAndReturn
    */
-  export type SiswaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelectCreateManyAndReturn<ExtArgs> | null
+    select?: siswaSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * The data used to create many Siswas.
+     * The data used to create many siswas.
      */
-    data: SiswaCreateManyInput | SiswaCreateManyInput[]
+    data: siswaCreateManyInput | siswaCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Siswa update
+   * siswa update
    */
-  export type SiswaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * The data needed to update a Siswa.
+     * The data needed to update a siswa.
      */
-    data: XOR<SiswaUpdateInput, SiswaUncheckedUpdateInput>
+    data: XOR<siswaUpdateInput, siswaUncheckedUpdateInput>
     /**
-     * Choose, which Siswa to update.
+     * Choose, which siswa to update.
      */
-    where: SiswaWhereUniqueInput
+    where: siswaWhereUniqueInput
   }
 
   /**
-   * Siswa updateMany
+   * siswa updateMany
    */
-  export type SiswaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Siswas.
+     * The data used to update siswas.
      */
-    data: XOR<SiswaUpdateManyMutationInput, SiswaUncheckedUpdateManyInput>
+    data: XOR<siswaUpdateManyMutationInput, siswaUncheckedUpdateManyInput>
     /**
-     * Filter which Siswas to update
+     * Filter which siswas to update
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
   }
 
   /**
-   * Siswa upsert
+   * siswa upsert
    */
-  export type SiswaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * The filter to search for the Siswa to update in case it exists.
+     * The filter to search for the siswa to update in case it exists.
      */
-    where: SiswaWhereUniqueInput
+    where: siswaWhereUniqueInput
     /**
-     * In case the Siswa found by the `where` argument doesn't exist, create a new Siswa with this data.
+     * In case the siswa found by the `where` argument doesn't exist, create a new siswa with this data.
      */
-    create: XOR<SiswaCreateInput, SiswaUncheckedCreateInput>
+    create: XOR<siswaCreateInput, siswaUncheckedCreateInput>
     /**
-     * In case the Siswa was found with the provided `where` argument, update it with this data.
+     * In case the siswa was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<SiswaUpdateInput, SiswaUncheckedUpdateInput>
+    update: XOR<siswaUpdateInput, siswaUncheckedUpdateInput>
   }
 
   /**
-   * Siswa delete
+   * siswa delete
    */
-  export type SiswaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
     /**
-     * Filter which Siswa to delete.
+     * Filter which siswa to delete.
      */
-    where: SiswaWhereUniqueInput
+    where: siswaWhereUniqueInput
   }
 
   /**
-   * Siswa deleteMany
+   * siswa deleteMany
    */
-  export type SiswaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Siswas to delete
+     * Filter which siswas to delete
      */
-    where?: SiswaWhereInput
+    where?: siswaWhereInput
   }
 
   /**
-   * Siswa without action
+   * siswa without action
    */
-  export type SiswaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type siswaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Siswa
+     * Select specific fields to fetch from the siswa
      */
-    select?: SiswaSelect<ExtArgs> | null
+    select?: siswaSelect<ExtArgs> | null
   }
 
 
@@ -1755,6 +2742,16 @@ export namespace Prisma {
   };
 
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+  export const PengumumanScalarFieldEnum: {
+    nipd: 'nipd',
+    kelas: 'kelas',
+    nama: 'nama',
+    id: 'id'
+  };
+
+  export type PengumumanScalarFieldEnum = (typeof PengumumanScalarFieldEnum)[keyof typeof PengumumanScalarFieldEnum]
 
 
   export const SiswaScalarFieldEnum: {
@@ -1841,95 +2838,190 @@ export namespace Prisma {
    */
 
 
-  export type SiswaWhereInput = {
-    AND?: SiswaWhereInput | SiswaWhereInput[]
-    OR?: SiswaWhereInput[]
-    NOT?: SiswaWhereInput | SiswaWhereInput[]
-    nama?: StringNullableFilter<"Siswa"> | string | null
-    nisn?: StringNullableFilter<"Siswa"> | string | null
-    kelas?: StringNullableFilter<"Siswa"> | string | null
-    id?: IntFilter<"Siswa"> | number
+  export type pengumumanWhereInput = {
+    AND?: pengumumanWhereInput | pengumumanWhereInput[]
+    OR?: pengumumanWhereInput[]
+    NOT?: pengumumanWhereInput | pengumumanWhereInput[]
+    nipd?: StringNullableFilter<"pengumuman"> | string | null
+    kelas?: StringNullableFilter<"pengumuman"> | string | null
+    nama?: StringNullableFilter<"pengumuman"> | string | null
+    id?: IntFilter<"pengumuman"> | number
   }
 
-  export type SiswaOrderByWithRelationInput = {
+  export type pengumumanOrderByWithRelationInput = {
+    nipd?: SortOrderInput | SortOrder
+    kelas?: SortOrderInput | SortOrder
+    nama?: SortOrderInput | SortOrder
+    id?: SortOrder
+  }
+
+  export type pengumumanWhereUniqueInput = Prisma.AtLeast<{
+    nipd?: string
+    id?: number
+    AND?: pengumumanWhereInput | pengumumanWhereInput[]
+    OR?: pengumumanWhereInput[]
+    NOT?: pengumumanWhereInput | pengumumanWhereInput[]
+    kelas?: StringNullableFilter<"pengumuman"> | string | null
+    nama?: StringNullableFilter<"pengumuman"> | string | null
+  }, "id" | "nipd">
+
+  export type pengumumanOrderByWithAggregationInput = {
+    nipd?: SortOrderInput | SortOrder
+    kelas?: SortOrderInput | SortOrder
+    nama?: SortOrderInput | SortOrder
+    id?: SortOrder
+    _count?: pengumumanCountOrderByAggregateInput
+    _avg?: pengumumanAvgOrderByAggregateInput
+    _max?: pengumumanMaxOrderByAggregateInput
+    _min?: pengumumanMinOrderByAggregateInput
+    _sum?: pengumumanSumOrderByAggregateInput
+  }
+
+  export type pengumumanScalarWhereWithAggregatesInput = {
+    AND?: pengumumanScalarWhereWithAggregatesInput | pengumumanScalarWhereWithAggregatesInput[]
+    OR?: pengumumanScalarWhereWithAggregatesInput[]
+    NOT?: pengumumanScalarWhereWithAggregatesInput | pengumumanScalarWhereWithAggregatesInput[]
+    nipd?: StringNullableWithAggregatesFilter<"pengumuman"> | string | null
+    kelas?: StringNullableWithAggregatesFilter<"pengumuman"> | string | null
+    nama?: StringNullableWithAggregatesFilter<"pengumuman"> | string | null
+    id?: IntWithAggregatesFilter<"pengumuman"> | number
+  }
+
+  export type siswaWhereInput = {
+    AND?: siswaWhereInput | siswaWhereInput[]
+    OR?: siswaWhereInput[]
+    NOT?: siswaWhereInput | siswaWhereInput[]
+    nama?: StringNullableFilter<"siswa"> | string | null
+    nisn?: StringNullableFilter<"siswa"> | string | null
+    kelas?: StringNullableFilter<"siswa"> | string | null
+    id?: IntFilter<"siswa"> | number
+  }
+
+  export type siswaOrderByWithRelationInput = {
     nama?: SortOrderInput | SortOrder
     nisn?: SortOrderInput | SortOrder
     kelas?: SortOrderInput | SortOrder
     id?: SortOrder
   }
 
-  export type SiswaWhereUniqueInput = Prisma.AtLeast<{
+  export type siswaWhereUniqueInput = Prisma.AtLeast<{
     nisn?: string
     id?: number
-    AND?: SiswaWhereInput | SiswaWhereInput[]
-    OR?: SiswaWhereInput[]
-    NOT?: SiswaWhereInput | SiswaWhereInput[]
-    nama?: StringNullableFilter<"Siswa"> | string | null
-    kelas?: StringNullableFilter<"Siswa"> | string | null
+    AND?: siswaWhereInput | siswaWhereInput[]
+    OR?: siswaWhereInput[]
+    NOT?: siswaWhereInput | siswaWhereInput[]
+    nama?: StringNullableFilter<"siswa"> | string | null
+    kelas?: StringNullableFilter<"siswa"> | string | null
   }, "id" | "nisn">
 
-  export type SiswaOrderByWithAggregationInput = {
+  export type siswaOrderByWithAggregationInput = {
     nama?: SortOrderInput | SortOrder
     nisn?: SortOrderInput | SortOrder
     kelas?: SortOrderInput | SortOrder
     id?: SortOrder
-    _count?: SiswaCountOrderByAggregateInput
-    _avg?: SiswaAvgOrderByAggregateInput
-    _max?: SiswaMaxOrderByAggregateInput
-    _min?: SiswaMinOrderByAggregateInput
-    _sum?: SiswaSumOrderByAggregateInput
+    _count?: siswaCountOrderByAggregateInput
+    _avg?: siswaAvgOrderByAggregateInput
+    _max?: siswaMaxOrderByAggregateInput
+    _min?: siswaMinOrderByAggregateInput
+    _sum?: siswaSumOrderByAggregateInput
   }
 
-  export type SiswaScalarWhereWithAggregatesInput = {
-    AND?: SiswaScalarWhereWithAggregatesInput | SiswaScalarWhereWithAggregatesInput[]
-    OR?: SiswaScalarWhereWithAggregatesInput[]
-    NOT?: SiswaScalarWhereWithAggregatesInput | SiswaScalarWhereWithAggregatesInput[]
-    nama?: StringNullableWithAggregatesFilter<"Siswa"> | string | null
-    nisn?: StringNullableWithAggregatesFilter<"Siswa"> | string | null
-    kelas?: StringNullableWithAggregatesFilter<"Siswa"> | string | null
-    id?: IntWithAggregatesFilter<"Siswa"> | number
+  export type siswaScalarWhereWithAggregatesInput = {
+    AND?: siswaScalarWhereWithAggregatesInput | siswaScalarWhereWithAggregatesInput[]
+    OR?: siswaScalarWhereWithAggregatesInput[]
+    NOT?: siswaScalarWhereWithAggregatesInput | siswaScalarWhereWithAggregatesInput[]
+    nama?: StringNullableWithAggregatesFilter<"siswa"> | string | null
+    nisn?: StringNullableWithAggregatesFilter<"siswa"> | string | null
+    kelas?: StringNullableWithAggregatesFilter<"siswa"> | string | null
+    id?: IntWithAggregatesFilter<"siswa"> | number
   }
 
-  export type SiswaCreateInput = {
+  export type pengumumanCreateInput = {
+    nipd?: string | null
+    kelas?: string | null
+    nama?: string | null
+  }
+
+  export type pengumumanUncheckedCreateInput = {
+    nipd?: string | null
+    kelas?: string | null
+    nama?: string | null
+    id?: number
+  }
+
+  export type pengumumanUpdateInput = {
+    nipd?: NullableStringFieldUpdateOperationsInput | string | null
+    kelas?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type pengumumanUncheckedUpdateInput = {
+    nipd?: NullableStringFieldUpdateOperationsInput | string | null
+    kelas?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: NullableStringFieldUpdateOperationsInput | string | null
+    id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type pengumumanCreateManyInput = {
+    nipd?: string | null
+    kelas?: string | null
+    nama?: string | null
+    id?: number
+  }
+
+  export type pengumumanUpdateManyMutationInput = {
+    nipd?: NullableStringFieldUpdateOperationsInput | string | null
+    kelas?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type pengumumanUncheckedUpdateManyInput = {
+    nipd?: NullableStringFieldUpdateOperationsInput | string | null
+    kelas?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: NullableStringFieldUpdateOperationsInput | string | null
+    id?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type siswaCreateInput = {
     nama?: string | null
     nisn?: string | null
     kelas?: string | null
   }
 
-  export type SiswaUncheckedCreateInput = {
+  export type siswaUncheckedCreateInput = {
     nama?: string | null
     nisn?: string | null
     kelas?: string | null
     id?: number
   }
 
-  export type SiswaUpdateInput = {
+  export type siswaUpdateInput = {
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     nisn?: NullableStringFieldUpdateOperationsInput | string | null
     kelas?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type SiswaUncheckedUpdateInput = {
+  export type siswaUncheckedUpdateInput = {
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     nisn?: NullableStringFieldUpdateOperationsInput | string | null
     kelas?: NullableStringFieldUpdateOperationsInput | string | null
     id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type SiswaCreateManyInput = {
+  export type siswaCreateManyInput = {
     nama?: string | null
     nisn?: string | null
     kelas?: string | null
     id?: number
   }
 
-  export type SiswaUpdateManyMutationInput = {
+  export type siswaUpdateManyMutationInput = {
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     nisn?: NullableStringFieldUpdateOperationsInput | string | null
     kelas?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type SiswaUncheckedUpdateManyInput = {
+  export type siswaUncheckedUpdateManyInput = {
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     nisn?: NullableStringFieldUpdateOperationsInput | string | null
     kelas?: NullableStringFieldUpdateOperationsInput | string | null
@@ -1967,32 +3059,32 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type SiswaCountOrderByAggregateInput = {
-    nama?: SortOrder
-    nisn?: SortOrder
+  export type pengumumanCountOrderByAggregateInput = {
+    nipd?: SortOrder
     kelas?: SortOrder
-    id?: SortOrder
-  }
-
-  export type SiswaAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type SiswaMaxOrderByAggregateInput = {
     nama?: SortOrder
-    nisn?: SortOrder
-    kelas?: SortOrder
     id?: SortOrder
   }
 
-  export type SiswaMinOrderByAggregateInput = {
+  export type pengumumanAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type pengumumanMaxOrderByAggregateInput = {
+    nipd?: SortOrder
+    kelas?: SortOrder
     nama?: SortOrder
-    nisn?: SortOrder
-    kelas?: SortOrder
     id?: SortOrder
   }
 
-  export type SiswaSumOrderByAggregateInput = {
+  export type pengumumanMinOrderByAggregateInput = {
+    nipd?: SortOrder
+    kelas?: SortOrder
+    nama?: SortOrder
+    id?: SortOrder
+  }
+
+  export type pengumumanSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -2028,6 +3120,35 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type siswaCountOrderByAggregateInput = {
+    nama?: SortOrder
+    nisn?: SortOrder
+    kelas?: SortOrder
+    id?: SortOrder
+  }
+
+  export type siswaAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type siswaMaxOrderByAggregateInput = {
+    nama?: SortOrder
+    nisn?: SortOrder
+    kelas?: SortOrder
+    id?: SortOrder
+  }
+
+  export type siswaMinOrderByAggregateInput = {
+    nama?: SortOrder
+    nisn?: SortOrder
+    kelas?: SortOrder
+    id?: SortOrder
+  }
+
+  export type siswaSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -2128,9 +3249,13 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use SiswaDefaultArgs instead
+     * @deprecated Use pengumumanDefaultArgs instead
      */
-    export type SiswaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SiswaDefaultArgs<ExtArgs>
+    export type pengumumanArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = pengumumanDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use siswaDefaultArgs instead
+     */
+    export type siswaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = siswaDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
