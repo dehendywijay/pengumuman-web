@@ -208,10 +208,7 @@ export default function RevealPage({ student, onBack }: RevealPageProps) {
               className="flex flex-wrap justify-center gap-4 w-full"
             >
             
-                <button className="flex-1 min-w-[200px] bg-accent text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-accent/90 transition-all active:scale-[0.98]">
-                  <Download className="h-5 w-5" />
-                  UNDUH SK KELULUSAN (PDF)
-                </button>
+                
              
               <button 
                 onClick={onBack}
