@@ -117,7 +117,7 @@ export default function Home() {
                 <p className="italic text-white/60 text-xs md:text-sm">
                   "Kelulusan adalah awal dari perjalanan baru. Tetaplah rendah
                   hati dan teruslah bermimpi."
-                  <br />- Kepala Sekolah SMANSA
+                  <br />- Kepala Sekolah SMAN 1 Bangunrejo
                 </p>
               </div>
             </div>
