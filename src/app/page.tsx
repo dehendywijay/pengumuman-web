@@ -7,6 +7,7 @@ import { FileText, Download, ShieldCheck, GraduationCap } from "lucide-react";
 import RevealPage from "../components/RevealPage";
 import CountdownTimer from "../components/CountdownTimer";
 import LoginForm from "../components/LoginForm";
+import Slider from "@/components/FotoSlide";
 
 // Target date for the announcement
 // src/app/page.tsx
@@ -124,24 +125,7 @@ export default function Home() {
               </div>
             </div>
 
-            <a
-              href="/public/67fdbcb75f2d0.webp"
-              download
-              className="w-full glass hover:bg-white/5 border border-white/10 text-white font-bold 
-                py-3 sm:py-4 px-4 
-                rounded-xl flex items-center justify-center gap-2 sm:gap-3 
-                text-sm sm:text-base 
-                transition-all"
-            >
-              <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-accent shrink-0" />
-
-              <span className="text-center leading-tight">
-                UNDUH SK KEPALA SEKOLAH
-                <span className="block sm:inline"> (PDF)</span>
-              </span>
-
-              <Download className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" />
-            </a>
+            <Slider />
           </motion.div>
 
           {/* Right: Login Form */}

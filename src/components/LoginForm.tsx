@@ -64,7 +64,7 @@ export default function LoginForm({
         </div>
         <h2 className="text-xl font-bold tracking-tight">Login Siswa</h2>
         <p className="text-white/50 text-sm">
-          Masukkan NIS Anda untuk melihat hasil
+          Masukkan NIPD Anda untuk melihat hasil
         </p>
       </div>
 
